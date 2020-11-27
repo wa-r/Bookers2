@@ -15,8 +15,9 @@
       <li>
         <%= link_to "Home", home_about_path %>
       </li>
+      <!-- 訂正済 -->
       <li>
-        <%= link_to "Users", home_about_path %>
+        <%= link_to "Users", user_path(current_user.id) %>
       </li>
       <!-- user_path(user.id)？　今はそのルートがない 適当な値 -->
       <li>

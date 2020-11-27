@@ -10,6 +10,35 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+    <!-- 正しい値がわからないので一端の値 -->
+      <li>
+        <%= link_to "Home", home_about_path %>
+      </li>
+      <li>
+        <%= link_to "Users", home_about_path %>
+      </li>
+      <!-- user_path(user.id)？　今はそのルートがない 適当な値 -->
+      <li>
+        <%= link_to "Books", user_path(current_user.id) %>
+      </li>
+      <li>
+        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "Home", "/" %>
+      </li>
+      <li>
+        <%= link_to "About", home_about_path %>
+      </li>
+      <li>
+        <%= link_to "sign up", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "login", new_user_session_path %>
+      </li>
+    <% end %>
     <%= yield %>
   </body>
 </html>

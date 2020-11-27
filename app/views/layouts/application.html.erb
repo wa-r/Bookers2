@@ -10,16 +10,16 @@
   </head>
 
   <body>
+    <div class="heder-menus">
+　    <%= link_to "Bookers", root_path %>
+    </div>
     <% if user_signed_in? %>
-    <!-- 正しい値がわからないので一端の値 -->
       <li>
-        <%= link_to "Home", home_about_path %>
+        <%= link_to "Home", root_path %>
       </li>
-      <!-- 訂正済 -->
       <li>
         <%= link_to "Users", user_path(current_user.id) %>
       </li>
-      <!-- user_path(user.id)？　今はそのルートがない 適当な値 -->
       <li>
         <%= link_to "Books", user_path(current_user.id) %>
       </li>
@@ -28,7 +28,7 @@
       </li>
     <% else %>
       <li>
-        <%= link_to "Home", "/" %>
+        <%= link_to "Home", root_path %>
       </li>
       <li>
         <%= link_to "About", home_about_path %>
@@ -42,4 +42,8 @@
     <% end %>
     <%= yield %>
   </body>
+
+  <footer>
+    <p>CopyRight Infratop.inc</p>
+  </footer>
 </html>

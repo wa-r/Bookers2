@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User info</h1>
+<!-- attachment_image_tag エラー 後ほど書き直す -->
+<p><%= image_tag('sample-author1.jpg') %></p>
+<p>name<%= @user.name %></p>
+<p>introduction<%= @user.introduction %></p>
+<% if @user.id == current_user.id %>
+  <%= link_to "setting", edit_user_path(@user) %>
+<% else %>
+  <%= link_to "setting", user_path(current_user.id) %>
+<% end %>
+
+<h1>New book</h1>
+<%= form_with model: @book, local: true do |f| %>
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <h4>Opinion</h4>
+  <%= f.text_area :body %><br>
+  <%= f.submit 'Create Book' %>
+<% end %>
+
+<h1>Books</h1>
+<table>
+  <thead>
+    <th>Title</th>
+    <th>Opinion</th>
+  </thead>
+  <tbody>
+    <tr>
+
+    </tr>
+  </tbody>
+</table>

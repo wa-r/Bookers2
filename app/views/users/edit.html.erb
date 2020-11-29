@@ -1,11 +1,10 @@
 <h2>User info</h2>
 <%= form_with model: @user, local: true do |f| %>
   <p><label for="InputName">Name</label></p>
-  <p><%= f.text_field :name, autofocus: true, id: "InputName"  %></p>
-  <!-- 画像の編集欄も組み込む -->
+  <p><%= f.text_field :name, autofocus: true, id: "InputName" %></p>
   <p><label for="InputImage">Image</label></p>
-  <%= f.attachment_field :profile_image %>
-  <p></p><label for="InputIntroduction">Introduction</label></p>
+  <p><%= f.attachment_field :profile_image, autofocus: true, id: "InputImage"%></p>
+  </p><label for="InputIntroduction">Introduction</label></p>
   <p><%= f.text_area :introduction, autofocus: true, id: "InputIntroduction" %></p>
   <p><%= f.submit 'Update User' %></p>
 <% end %>

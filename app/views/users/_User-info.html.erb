@@ -12,4 +12,6 @@
     <td><%= user.introduction %></td>
   </tr>
 </table>
-<%= link_to "setting", edit_user_path(@user.id) %>
+<%= link_to edit_user_path(@user.id) do %>
+  <i class="fas fa-user-cog"></i>
+<% end %>

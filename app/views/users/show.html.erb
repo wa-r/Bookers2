@@ -4,22 +4,26 @@
 <h1>Books</h1>
 <table>
   <thead>
-    <th>Title</th>
-    <th>Opinion</th>
+    <tr>
+      <th>Title</th>
+      <th>Opinion</th>
+    </tr>
   </thead>
   <tbody>
     <% @books.each do |book| %>
-    <tr>
-      <td>
-        <%= attachment_image_tag book.user, :profile_image, :fill, 20, 20, fallback: "no_image.jpg" %>
-      </td>
-      <td>
-        <%= link_to book.title, book_path(book.id) %>
-      </td>
-      <td>
-        <%= book.body %>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <%= link_to user_path(book.user.id) do %>
+            <%= attachment_image_tag book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to book.title, book_path(book.id) %>
+        </td>
+        <td>
+          <%= book.body %>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>

@@ -1,8 +1,6 @@
-<h1>User info</h1>
-<table>
-  <tr>
-    <td><%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "80x80" %></td>
-  </tr>
+<h2>User info</h2>
+<%= attachment_image_tag user, :profile_image, fallback: "no_image.jpg", size: "80x80" %>
+<table class="table table-sidebar">
   <tr>
     <th>name</th>
     <td><%= user.name %></td>
@@ -12,6 +10,6 @@
     <td><%= user.introduction %></td>
   </tr>
 </table>
-<%= link_to edit_user_path(@user.id) do %>
+<%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block " do %>
   <i class="fas fa-user-cog"></i>
 <% end %>

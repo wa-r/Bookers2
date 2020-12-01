@@ -12,5 +12,5 @@
   <p><%= f.attachment_field :profile_image, autofocus: true, id: "InputImage"%></p>
   </p><label for="InputIntroduction">Introduction</label></p>
   <p><%= f.text_area :introduction, autofocus: true, id: "InputIntroduction" %></p>
-  <p><%= f.submit 'Update User' %></p>
+  <p><%= f.submit('Update User', class: "btn btn-secondary")%></p>
 <% end %>
